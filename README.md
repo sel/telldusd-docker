@@ -11,4 +11,11 @@ The default [tellstick.conf](tellstick.conf) supplied here needs to be modified 
 Refer to [telldus](https://github.com/telldus/telldus) regarding the daemon itself.
 
 The container image, built for the Raspberry Pi armhf ABI, is available on
-[Docker Hub](https://hub.docker.com/r/slarkin/telldusd-docker/)
+[Docker Hub](https://hub.docker.com/r/slarkin/telldusd-docker/) and can be run as follows.
+
+```
+# docker run -d --name telldusd --privileged \
+  -v /dev/bus/usb:/dev/bus/usb \
+  -v $PWD/tellstick.conf:/etc/tellstick.conf:ro \
+  slarkin/telldusd:20181118-1602
+```
